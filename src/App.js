@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
+import FullscreenSection from "Components/FullscreenSection";
+import Navbar from "Components/Navbar";
+import styled from "styled-components";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <Wrapper>
+    <Navbar/>
+
+    <FullscreenSection>
+      hello
+    </FullscreenSection>
+
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: var(--primary-background);
+  `;
 
 export default App;
