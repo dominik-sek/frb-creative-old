@@ -6,11 +6,11 @@ function App() {
 
     <Wrapper>
     <Navbar/>
-
-    <FullscreenSection>
-      hello
-    </FullscreenSection>
-
+      <FullscreenSection style={{background:'brown'}} id="home"> hello </FullscreenSection>
+      <FullscreenSection style={{background:'gray'}} id="about"> World </FullscreenSection>
+      <FullscreenSection style={{background:'crimson'}} id="gallery"> World </FullscreenSection>
+      <FullscreenSection style={{background:'#555555'}} id="offer"> World </FullscreenSection>
+      <FullscreenSection style={{background:'black'}} id="contact"> World </FullscreenSection>
     </Wrapper>
   );
 }
@@ -18,8 +18,8 @@ function App() {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
   background-color: var(--primary-background);
   `;
+
 
 export default App;

@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+
 export default function FullscreenSection(params) {
     return (
-        <FullscreenSectionWrapper>
-            <FullscreenSectionInner>
+        <FullscreenSectionWrapper id={params.id} style={params.style}>
+            <FullscreenSectionInner >
                 {params.children}
             </FullscreenSectionInner>
         </FullscreenSectionWrapper>
@@ -10,13 +11,20 @@ export default function FullscreenSection(params) {
     )
 };
 const FullscreenSectionWrapper = styled.section`
-    width:80%;
-    margin-left:20%;
+    
+    width:100%;
     height:100vh;
     background-color:var(--secondary-background);
     display:flex;
     justify-content:center;
     align-items:center;
+    scroll-snap-align:center;
+    scroll-snap-stop:normal;
+
+    @media(min-width:768px){
+        width:80%;
+        margin-left:20%;
+    }
 `;
 const FullscreenSectionInner = styled.div`
     width:100%;

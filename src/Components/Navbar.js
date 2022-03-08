@@ -9,7 +9,7 @@ export default function Navbar(params) {
 
     return(
         <NavWrapper>
-                <StyledGiHamburgerMenu onClick={()=>{setIsOpen(true)}} />
+                <StyledGiHamburgerMenu onClick={()=>setIsOpen(true)} />
             <Logo>
                 <span>C</span>
                 reati
@@ -18,23 +18,25 @@ export default function Navbar(params) {
             </Logo>
 
             <Drawer open={isOpen}> 
-                    <StyledHiArrowLeft onClick={()=>{setIsOpen(false)}}/>
-                <DrawerItem>
-                    <span>Strona główna</span>
+                    <StyledHiArrowLeft onClick={()=>setIsOpen(false)}/>
+                    
+                <DrawerItem onClick={()=>setIsOpen(false)}>
+                    <a href="#home">Strona główna</a>
                 </DrawerItem>
-                <DrawerItem>
-                    <span>O nas</span>
+                <DrawerItem onClick={()=>setIsOpen(false)}> 
+                    <a href="#about">O nas</a>
                 </DrawerItem>
-                <DrawerItem>
-                    <span>Galeria</span>
+                <DrawerItem onClick={()=>setIsOpen(false)}>
+                    <a href="#gallery">Galeria</a>
                 </DrawerItem>
-                <DrawerItem>
-                    <span>Oferta</span>
+                <DrawerItem onClick={()=>setIsOpen(false)}>
+                    <a href="#offers">Oferta</a>
                 </DrawerItem>
-                <DrawerItem>
-                    <span>Kontakt</span>
+                <DrawerItem onClick={()=>setIsOpen(false)}>
+                    <a href="#contact">Kontakt</a>
                 </DrawerItem>
-                <Logo>
+
+            <Logo>
                 <span>C</span>
                 reati
                 <span>V</span>
@@ -48,11 +50,11 @@ export default function Navbar(params) {
 
 
             <StyledUl>
-            <li><a>Strona główna</a></li>
-            <li><a>O nas</a></li>
-            <li><a>Galeria</a></li>
-            <li><a>Oferta</a></li>
-            <li><a>Kontakt</a></li>
+            <li><a href='#home'>Strona główna</a></li>
+            <li><a href='#about'>O nas</a></li>
+            <li><a href='#gallery'>Galeria</a></li>
+            <li><a href='#offer'>Oferta</a></li>
+            <li><a href='#contact'>Kontakt</a></li>
             </StyledUl>
 
         </StyledNav>
@@ -60,19 +62,30 @@ export default function Navbar(params) {
     )
 };
 
-
+const StyledGiHamburgerMenu = styled(GiHamburgerMenu)`
+    color:var(--primary-color);
+    width:10%;
+    height:100%;
+    margin-left:1rem;
+    cursor:pointer;
+    @media (min-width: 768px) {
+        display:none;
+    }
+   
+`
 const StyledHiArrowLeft = styled(HiArrowLeft)`
     cursor:pointer;
     width:100%;
     height:10%;
     margin:1rem 0;
+    z-index:999;
 `
+
 const Drawer = styled.div`
     position:absolute; 
-
     width:100%;
-    height:100%;
-    background-color:var(--primary-background);
+    height:100vh;
+    background-color:black;
     display:flex;
     align-items:center;
     flex-direction:column;
@@ -80,7 +93,7 @@ const Drawer = styled.div`
     color:var(--primary-color);
     font-family:var(--secondary-font);
     font-size:1.5rem;
-    z-index:1;
+    z-index:999;
     transform:translateX(${props => props.open ? '0' : '-100%'});    
     transition:transform 0.3s ease-in-out;
     
@@ -103,17 +116,25 @@ const DrawerItem = styled.div`
 
 const NavWrapper = styled.div`
     display: flex;
-    height:7vh;
+    height:10vh;
     width:100%;
-
+    justify-content:space-between;
+    z-index:999;
+    top:0;
+    position:sticky;
+    background:var(--primary-background);
+    
     @media (min-width: 768px){
-        height:10vh;
+        & > *{
+
+        }
     }
 `;
 const StyledNav = styled.nav`
     display:none;
     @media (min-width: 768px) {
         width:80%;
+        height:100%;
         display:flex;
         align-items:center;
 
@@ -121,11 +142,12 @@ const StyledNav = styled.nav`
 `
 
 const Logo = styled.div`
-    display:none;
+
     font-family:var(--secondary-font);
     font-size:1.5rem;
     display:flex;
     width:20%;
+    margin:1rem;
     justify-content:center;
     align-items:center;
     position:relative;
@@ -133,20 +155,13 @@ const Logo = styled.div`
         color:var(--primary-color);
         font-family:var(--secondary-font);
     }
-    
-`
-
-
-const StyledGiHamburgerMenu = styled(GiHamburgerMenu)`
-    color:var(--primary-color);
-    font-size:2rem;
-    margin:0 1rem;
-    cursor:pointer;
-    @media (min-width: 768px) {
-        display:none;
+    @media(min-width:768px){
+        margin:0;
     }
-    
 `
+
+
+
 
 const StyledUl = styled.ul`
     display:none;
@@ -158,6 +173,7 @@ const StyledUl = styled.ul`
         align-items:center;
         list-style-type:none;
         padding:0;
+        margin:3rem 0;
         & > li {
             height:100%;
             width:25%;
@@ -175,7 +191,6 @@ const StyledUl = styled.ul`
                 position:absolute;
                 transition:0.4s ease-in-out;
                 border-bottom:2px solid var(--primary-color);
-                margin-bottom:-1px;
             }
 
             &:hover {
