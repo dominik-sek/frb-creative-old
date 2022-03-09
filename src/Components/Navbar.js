@@ -1,63 +1,122 @@
 import styled from 'styled-components';
-import {GiHamburgerMenu} from 'react-icons/gi';
-import {HiArrowLeft} from 'react-icons/hi';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { HiArrowLeft } from 'react-icons/hi';
 import React, { useState, useEffect } from 'react';
-import { keyframes } from 'styled-components';
 
 export default function Navbar(params) {
     const [isOpen, setIsOpen] = useState(false);
+    const [active, setActive] = useState([false, false, false, false, false]);
 
-    return(
+    const toggleActive = (index) => {
+        let newActive = [false, false, false, false, false];
+        newActive[index] = true;
+        setActive(newActive);
+    }
+
+    useEffect(() => {
+        window.addEventListener("scroll", () => {
+
+          const home = document.querySelector("#home");
+          const about = document.querySelector("#about");
+          const gallery = document.querySelector("#gallery");
+          const offer = document.querySelector("#offer");
+          const contact = document.querySelector("#contact");
+        
+          //this is just in case the user changes height
+          const homeOffset = home.offsetTop;
+          const aboutOffset = about.offsetTop;
+          const galleryOffset = gallery.offsetTop;
+          const offerOffset = offer.offsetTop;
+          const contactOffset = contact.offsetTop;
+            
+          const currentScroll = window.scrollY;
+    
+          if (currentScroll >= homeOffset - 100 && currentScroll < aboutOffset - 100) {
+            toggleActive(0);
+          }
+          if (currentScroll >= aboutOffset - 100 && currentScroll < galleryOffset - 100) {
+            toggleActive(1);
+          }
+          if (currentScroll >= galleryOffset - 100 && currentScroll < offerOffset - 100) {
+            toggleActive(2);
+          }
+          if (currentScroll >= offerOffset - 100 && currentScroll < contactOffset - 100) {
+            toggleActive(3);
+          }
+          if (currentScroll >= contactOffset - 100) {
+            toggleActive(4);
+          }
+          
+        })}, []);
+    
+
+
+    return (
         <NavWrapper>
-                <StyledGiHamburgerMenu onClick={()=>setIsOpen(true)} />
-            <Logo>
+            <StyledGiHamburgerMenu onClick={() => setIsOpen(true)} />
+            <Logo href="#home" onClick={() => toggleActive(0)}>
                 <span>C</span>
                 reati
                 <span>V</span>
-                e 
+                e
             </Logo>
+            {/* mobile drawer: */}
+            <Drawer open={isOpen}>
+                <StyledHiArrowLeft onClick={() => setIsOpen(false)} />
 
-            <Drawer open={isOpen}> 
-                    <StyledHiArrowLeft onClick={()=>setIsOpen(false)}/>
-                    
-                <DrawerItem onClick={()=>setIsOpen(false)}>
+                <DrawerItem onClick={() => setIsOpen(false)}>
                     <a href="#home">Strona główna</a>
                 </DrawerItem>
-                <DrawerItem onClick={()=>setIsOpen(false)}> 
+                <DrawerItem onClick={() => setIsOpen(false)}>
                     <a href="#about">O nas</a>
                 </DrawerItem>
-                <DrawerItem onClick={()=>setIsOpen(false)}>
+                <DrawerItem onClick={() => setIsOpen(false)}>
                     <a href="#gallery">Galeria</a>
                 </DrawerItem>
-                <DrawerItem onClick={()=>setIsOpen(false)}>
-                    <a href="#offers">Oferta</a>
+                <DrawerItem onClick={() => setIsOpen(false)}>
+                    <a href="#offer">Oferta</a>
                 </DrawerItem>
-                <DrawerItem onClick={()=>setIsOpen(false)}>
+                <DrawerItem onClick={() => setIsOpen(false)}>
                     <a href="#contact">Kontakt</a>
                 </DrawerItem>
 
-            <Logo>
-                <span>C</span>
-                reati
-                <span>V</span>
-                e 
-            </Logo>
+                <Logo href="#home" onClick={() => toggleActive(0)}>
+
+                    <span>C</span>
+                    reati
+                    <span>V</span>
+                    e
+                </Logo>
 
 
             </Drawer>
 
-        <StyledNav>
+            <StyledNav>
 
+                <StyledUl>
 
-            <StyledUl>
-            <li><a href='#home'>Strona główna</a></li>
-            <li><a href='#about'>O nas</a></li>
-            <li><a href='#gallery'>Galeria</a></li>
-            <li><a href='#offer'>Oferta</a></li>
-            <li><a href='#contact'>Kontakt</a></li>
-            </StyledUl>
+                    <li className={active[0] ? 'active' : 'inactive'} onClick={() => toggleActive(0)}>
+                        <a href='#home'>Strona główna</a>
+                    </li>
+                     
+                    <li className={active[1] ? 'active' : 'inactive'} onClick={() => toggleActive(1)}>
+                    <a href='#about' >O nas</a>
+                    </li>
 
-        </StyledNav>
+                    <li className={active[2] ? 'active' : 'inactive'} onClick={() => toggleActive(2)}>
+                    <a href='#gallery' >Galeria</a>
+                    </li>
+
+                    <li className={active[3] ? 'active' : 'inactive'} onClick={() => toggleActive(3)}>
+                    <a href='#offer'>Oferta</a>
+                    </li>
+
+                    <li className={active[4] ? 'active' : 'inactive'} onClick={() => toggleActive(4)}>
+                    <a href='#contact'>Kontakt</a>
+                    </li>
+                </StyledUl>
+
+            </StyledNav>
         </NavWrapper>
     )
 };
@@ -122,18 +181,13 @@ const NavWrapper = styled.div`
     z-index:999;
     top:0;
     position:sticky;
-    background:var(--primary-background);
+    background:var(--secondary-background);
     
-    @media (min-width: 768px){
-        & > *{
-
-        }
-    }
 `;
 const StyledNav = styled.nav`
     display:none;
     @media (min-width: 768px) {
-        width:80%;
+        width:85%;
         height:100%;
         display:flex;
         align-items:center;
@@ -141,13 +195,13 @@ const StyledNav = styled.nav`
     }
 `
 
-const Logo = styled.div`
+const Logo = styled.a`
 
     font-family:var(--secondary-font);
     font-size:1.5rem;
     display:flex;
-    width:20%;
-    margin:1rem;
+    width:15%;
+    margin-right:1.25rem;
     justify-content:center;
     align-items:center;
     position:relative;
@@ -156,16 +210,15 @@ const Logo = styled.div`
         font-family:var(--secondary-font);
     }
     @media(min-width:768px){
+        font-size:2rem;
         margin:0;
     }
 `
 
 
-
-
 const StyledUl = styled.ul`
-    display:none;
 
+    display:none;
     @media (min-width: 768px) {
         display:flex;
         width:100%;
@@ -174,6 +227,12 @@ const StyledUl = styled.ul`
         list-style-type:none;
         padding:0;
         margin:3rem 0;
+       
+        & .active{
+            box-shadow:0px 1px 0px var(--primary-color);
+            opacity:0.8;
+        }
+
         & > li {
             height:100%;
             width:25%;
@@ -181,31 +240,28 @@ const StyledUl = styled.ul`
             justify-content:center;
             align-items:center;
             position:relative;
-            border-bottom:1px solid black;
+            box-shadow:0px 1px 0px black;
             box-sizing: border-box;
+            
+
             &:after{
                 content:'';
                 width:0%;
-                left:0;         
+                left:0;
                 bottom:0;
                 position:absolute;
-                transition:0.4s ease-in-out;
+                transition:0.2s ease-in-out;
                 border-bottom:2px solid var(--primary-color);
             }
 
             &:hover {
                 & > a {
-                    color:var(--primary-color);
+                color:var(--primary-color);
                 }
                 :after{
                 width:100%;
                 }
-
             }
-           
         }
-
-
     }
-
 `

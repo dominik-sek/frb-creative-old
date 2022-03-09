@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 
 export default function FullscreenSection(params) {
+
+
     return (
         <FullscreenSectionWrapper id={params.id} style={params.style}>
             <FullscreenSectionInner >
                 {params.children}
+                
             </FullscreenSectionInner>
         </FullscreenSectionWrapper>
 
@@ -20,11 +23,11 @@ const FullscreenSectionWrapper = styled.section`
     align-items:center;
     scroll-snap-align:center;
     scroll-snap-stop:normal;
+    
 
     @media(min-width:768px){
-        width:80%;
-        margin-left:20%;
     }
+
 `;
 const FullscreenSectionInner = styled.div`
     width:100%;
