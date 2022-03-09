@@ -2,14 +2,6 @@ import Logo from 'Components/Logo';
 import styled,{keyframes} from 'styled-components';
 import bathroom2 from '../assets/images/bathroom2.jpg';
 
-const enlargeBackground = keyframes`
-    from{
-        background-size:100% 100%;
-    }
-    to{
-        background-size:150% 150%;
-    }
-`;
 
 const Home = () => {
     return ( 
@@ -50,11 +42,9 @@ const Wrapper = styled.div`
     background-position: center;
     background-repeat: no-repeat; 
     background-size: cover; 
-
-    
+    background-attachment: fixed;
 
     @media (min-width: 768px) {
-        background-attachment: fixed;
     }
 
 `;

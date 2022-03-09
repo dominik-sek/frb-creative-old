@@ -2,9 +2,7 @@ import FullscreenSection from "Components/FullscreenSection";
 import Navbar from "Components/Navbar";
 import styled from "styled-components";
 import React, { useEffect } from "react";
-import bathroom from "./assets/images/bathroom.jpg";
-import bathroom2 from "./assets/images/bathroom2.jpg";
-import Home from "Content/Home";
+import { Home, About, Gallery, Offers, Contact } from "./index.js";
 function App() {
 
   return (
@@ -18,19 +16,19 @@ function App() {
         </FullscreenSection>
 
         <FullscreenSection  id="about">
-          About
+          <About />
         </FullscreenSection>
 
         <FullscreenSection  id="gallery">
-          Gallery
+          <Gallery />
         </FullscreenSection>
 
         <FullscreenSection  id="offer">
-          Offer
+          <Offers />
         </FullscreenSection>
 
         <FullscreenSection  id="contact">
-          Contact
+          <Contact />
         </FullscreenSection>
 
       </SectionWrapper>

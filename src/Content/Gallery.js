@@ -1,70 +1,93 @@
-import Logo from 'Components/Logo';
-import styled from 'styled-components';
+import styled,{keyframes} from 'styled-components';
 import bathroom2 from '../assets/images/bathroom2.jpg';
-const HomeContent = () => {
+import Text from '../Components/Text'
+import Title from 'Components/Title';
+
+const curtain = keyframes `
+    0% {
+        grid-gap: 100vw;
+        opacity:0;
+    }
+    100% {
+        grid-gap: 0; 
+        opacity:1;
+    }
+`
+
+
+
+const Gallery = () => {
     return ( 
-        <Content>
-            <img width={"100%"} src={bathroom2} alt="" />
-            <Text>
-            <Logo style={{height:"fit-content", fontSize:'10rem'}}/>
-                <span>Firma Remontowo - Budowlana</span>
-            </Text>
-        </Content>
+        <Wrapper>
+        <Layer>
+
+        <Title>Nasze prace: </Title>
+
+            <Body>
+                    
+            </Body>
+            </Layer>
+        </Wrapper>
 
       );
 }
 
-const Text = styled.div`
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    align-items:center;
+
+const Layer = styled.div`
     position:absolute;
-    color:white;
-    width:100%;
-    
-    
-    
-    * {
-        color:var(--primary-background);
-        font-weight:bold;
-
-    }
-
-    & > span {
-        font-size:3rem;
-        font-family:var(--primary-font);
-    }
-    `
-const Content = styled.div`
+    top:0;
+    left:0;
     width:100%;
     height:100%;
     display:flex;
     justify-content:center;
-    align-items:center;
     flex-direction:column;
-    text-align:center;
-    font-family:var(--primary-font);
-    font-size:1.5rem;
+    align-items:center;
+    background:rgba(0,0,0,0.5);
+`
+const Wrapper = styled.div`
+    background:purple;
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    background:url(${bathroom2});
+    background-color: #cccccc; 
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover; 
+
     
-    & img{
-            display:none;
-        }
 
     @media (min-width: 768px) {
-        flex-direction:row;
-        justify-content:space-between;
-        align-items:center;
-        & img{
-            display:block;
-            width:100%;
-            height:100%;
-            
-        }
-
+        background-attachment: fixed;
     }
+
+`;
+
+const Body = styled.div`
+    display:grid;
+    grid-template-rows:repeat(4, 1fr);
+    grid-gap:2em;
+    top:5%;
+    position:relative;
+    height:80%;
+    align-items:center;
+    justify-content:center;
+    margin:0 10% 0 10%;
+
+    @media (min-width: 768px) {
+        width:70%;
+        grid-template-columns:3fr 3fr;
+        grid-template-rows:1fr 1fr;
+        animation: ${curtain} 1s ease-in-out forwards;
+    }
+
 `;
 
 
- 
-export default HomeContent;
+
+export default Gallery;

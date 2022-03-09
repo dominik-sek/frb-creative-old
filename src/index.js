@@ -3,6 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import About from './Content/About';
+import Home from './Content/Home';
+import Gallery from './Content/Gallery';
+import Offers from './Content/Offers';
+import Contact from './Content/Contact';
+
+export {
+  About,
+  Home,
+  Gallery,
+  Offers,
+  Contact
+}
 
 ReactDOM.render(
   <React.StrictMode>
