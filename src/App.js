@@ -2,37 +2,38 @@ import FullscreenSection from "Components/FullscreenSection";
 import Navbar from "Components/Navbar";
 import styled from "styled-components";
 import React, { useEffect } from "react";
-
+import bathroom from "./assets/images/bathroom.jpg";
+import bathroom2 from "./assets/images/bathroom2.jpg";
+import Home from "Content/Home";
 function App() {
-
 
   return (
 
     <Wrapper>
-    <Navbar/>
-    <SectionWrapper>
-    
-      <FullscreenSection id="home"> 
-    1
-      </FullscreenSection>
+      <Navbar />
+      <SectionWrapper>
 
-      <FullscreenSection  id="about"> 
-    2
-      </FullscreenSection>
+        <FullscreenSection  id="home">
+          <Home />
+        </FullscreenSection>
 
-      <FullscreenSection  id="gallery"> 
-      3 
-      </FullscreenSection>
+        <FullscreenSection  id="about">
+          About
+        </FullscreenSection>
 
-      <FullscreenSection  id="offer">
-       4 
-       </FullscreenSection>
+        <FullscreenSection  id="gallery">
+          Gallery
+        </FullscreenSection>
 
-      <FullscreenSection id="contact"> 
-      5 
-      </FullscreenSection>
+        <FullscreenSection  id="offer">
+          Offer
+        </FullscreenSection>
 
-    </SectionWrapper>
+        <FullscreenSection  id="contact">
+          Contact
+        </FullscreenSection>
+
+      </SectionWrapper>
     </Wrapper>
   );
 }
@@ -42,7 +43,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   background-color: var(--primary-background);
   @media (min-width: 768px) {
-    margin: 0 10% 0 10%;
+    ${'' /* margin: 0 10% 0 10%; */}
   }
   `;
 
