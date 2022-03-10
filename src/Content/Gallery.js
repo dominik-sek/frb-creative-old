@@ -33,7 +33,7 @@ const Gallery = () => {
 
                 <Body>
                     <div className="gal1">
-                        <Image src="https://creative-remont.eu/lib/w9ni26/DSCN1444-kfrbvw8a.JPG" alt="" preview={{ visible: false }} onClick={() => setVisible1(true)} />
+                        <Image  src="https://creative-remont.eu/lib/w9ni26/DSCN1444-kfrbvw8a.JPG" alt="" preview={{ visible: false }} onClick={() => setVisible1(true)} />
                         <Text>Łazienki</Text>
 
                     </div>
@@ -48,14 +48,11 @@ const Gallery = () => {
 
                     </div>
                     <div className="gal4">
-                        <Image src="https://creative-remont.eu/lib/w9ni26/DSCN1466-kfu3ndjo.JPG" alt="" preview={{ visible: false }} onClick={() => setVisible4(true)}/>
+                        <Image width={"100%"} src="https://creative-remont.eu/lib/w9ni26/20181207_161934-kfu3qwbj.jpg" alt="" preview={{ visible: false }} onClick={() => setVisible4(true)}/>
                         <Text>Gładzie, Malowanie</Text>
 
                     </div>
 
-
-                    
-                   
 
                 </Body>
                 
@@ -146,6 +143,8 @@ const Body = styled.div`
         "gal1 gal2"
         "gal3 gal4";
 
+
+
     & * img {
         width:100%;
         cursor:pointer;
@@ -154,18 +153,33 @@ const Body = styled.div`
             transform: scale(1.1);
         }
         @media (min-width: 768px) {
-            width:70%;
+            object-fit: contain;
+            max-width: 70%;
+            height:auto;
+            
         }
         }
      
+    & .gal1 {
+    grid-area:gal1;
+    }
+    & .gal2 {
+        grid-area:gal2;
+    }
+    & .gal3 {
+        grid-area:gal3;
+    }
+    & .gal4 {
+        grid-area:gal4;
+    }
+    
     & > div {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         text-align: center;
-        margin: 5%;
-       
+
     }
     @media (min-width: 768px) {
         width:60%;

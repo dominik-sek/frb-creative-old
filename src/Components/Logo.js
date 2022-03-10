@@ -27,6 +27,10 @@ const Body = styled.a`
         color:var(--primary-color);
         font-family:var(--secondary-font);
     }
+    &:hover{
+        cursor:default;
+        color:var(--secondary-color);
+    }
     @media(min-width:768px){
         font-size:2rem;
         margin:0;

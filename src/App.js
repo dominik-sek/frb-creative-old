@@ -1,7 +1,7 @@
 import FullscreenSection from "Components/FullscreenSection";
 import Navbar from "Components/Navbar";
 import styled from "styled-components";
-import React, { useEffect } from "react";
+import React from "react";
 import { Home, About, Gallery, Offers, Contact } from "./index.js";
 function App() {
 

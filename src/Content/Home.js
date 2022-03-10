@@ -60,6 +60,7 @@ const Body = styled.div`
     justify-content:center;
     & .desc{
         font-size:3vmax;
+
     }   
 `;
 
@@ -75,10 +76,16 @@ const OrderButton = styled.a`
     margin: 10px;
     cursor: pointer;
     width:100%;
+    
+    &:hover{
+        background: var(--secondary-color);
+        color: var(--primary-color);
+    }
     @media (min-width: 768px){
         width:50%;
         font-size: 1.5vmax;
     }
+
 `
 
 export default Home;

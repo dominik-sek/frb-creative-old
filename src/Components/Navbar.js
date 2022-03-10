@@ -55,10 +55,13 @@ export default function Navbar(params) {
     return (
         <NavWrapper>
             <StyledGiHamburgerMenu onClick={() => setIsOpen(true)} />
-            <Logo href="#home" onClick={() => toggleActive(0)} />
+            <Logo href="#home" style={{cursor:'pointer'}} onClick={() => toggleActive(0)} />
             {/* mobile drawer: */}
             <Drawer open={isOpen}>
-                <StyledHiArrowLeft onClick={() => setIsOpen(false)} />
+            <DrawerItem onClick={() => setIsOpen(false)}>
+            <StyledHiArrowLeft style={{width:'100%', height:'100%'}} />
+            </DrawerItem>
+            <hr style={{width:"100%", opacity:0.2}}/>
 
                 <DrawerItem onClick={() => setIsOpen(false)}>
                     <a href="#home">Strona główna</a>
@@ -75,8 +78,9 @@ export default function Navbar(params) {
                 <DrawerItem onClick={() => setIsOpen(false)}>
                     <a href="#contact">Kontakt</a>
                 </DrawerItem>
-
-                <Logo href="#home" onClick={() => toggleActive(0)} />
+                <hr style={{width:"100%", opacity:0.2}}/>
+                
+                <Logo href="#home" style={{margin:0}} onClick={() => {toggleActive(0); setIsOpen(false)}} />
 
 
             </Drawer>
@@ -121,6 +125,7 @@ const NavWrapper = styled.div`
     top:0;
     position:sticky;
     background:var(--secondary-background);
+
     
 `;
 const StyledGiHamburgerMenu = styled(GiHamburgerMenu)`
@@ -146,7 +151,7 @@ const Drawer = styled.div`
     position:absolute; 
     width:100%;
     height:100vh;
-    background-color:black;
+    background-color:var(--secondary-background);
     display:flex;
     align-items:center;
     flex-direction:column;
@@ -158,15 +163,18 @@ const Drawer = styled.div`
     transform:translateX(${props => props.open ? '0' : '-100%'});    
     transition:transform 0.3s ease-in-out;
     
+    & a{
+        text-decoration:none;        
+        
+    }
     @media (min-width: 768px) {
         display:none;
     }
 `;
 const DrawerItem = styled.div`
-    background-color:var(--primary-color);
+    height:10vh;
     width:100%;
-    height:100px;
-    margin:1rem 0;
+    margin:1.2rem 0;
     display:flex;
     justify-content:center;
     align-items:center;

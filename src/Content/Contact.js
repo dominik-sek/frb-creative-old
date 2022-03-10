@@ -131,25 +131,38 @@ const Body = styled.div`
             }
 
             & input{
-                height:30px;
+                height: 5vmax;
+                @media (min-width: 768px){
+                    height: 3vmax;
+                }
 
              }
             & textarea{
-                height:100px;
+                height:10vmax;
+                @media (min-width: 768px){
+                    height: 7vmax;
+                }
                 resize: none;
             }
 
             & button{
                 cursor: pointer;
-                height:40px;
                 width:35%;
                 align-self: center;
                 background:var(--primary-color);
                 color:white;
                 border:none;
+                transition: all 0.3s ease-in-out;
+
+                height:10vmax;
+                @media (min-width: 768px){
+                    height: 3vmax;
+                }
+
 
                 &:hover{
-                    background:var(--primary-color-dark);
+                    background: var(--secondary-color);
+                    color: var(--primary-color);
                 }
             }
     }
@@ -157,8 +170,8 @@ const Body = styled.div`
 & .info {
         grid-area: info;
         display: flex;
-        justify-content: center;
-
+        justify-content: space-between;
+        width:100%;
         & > ul{
             list-style:none;           
         }
@@ -166,8 +179,11 @@ const Body = styled.div`
                 cursor:pointer;
                 width:fit-content;
                 transition: all 0.3s ease-in-out;
+
+                transform: scale(1.3);
+
                 &:hover{
-                    transform:scale(1.3);
+                    transform:scale(1.5);
                     & svg{
                     fill:#6A89C8;
                 }

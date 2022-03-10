@@ -16,7 +16,7 @@ const Body = styled.div`
     font-size:2em;
     text-align:center;
     @media( min-width: 768px){
-        font-size:3vw;
+        font-size:4vmax;
         text-align:left;
 
     }

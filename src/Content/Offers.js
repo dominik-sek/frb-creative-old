@@ -82,7 +82,7 @@ const Body = styled.div`
 
     display: grid; 
     position:relative;
-    height:80%;
+    height:70%;
     width:70%;
     
     
@@ -98,13 +98,13 @@ const Body = styled.div`
 
     @media (min-width: 768px) {
         grid-template-columns: 0.7fr 0.8fr 2fr;
-        grid-template-rows: repeat(3,1fr);
+        grid-template-rows: 0.2fr 0.5fr 0.5fr 0.5fr;
         grid-gap: 2em;
         grid-template-areas: 
+            ". . ."
             "desc desc photo"
             "desc desc photo"
-            ". . .";
-        top:10%;
+            ". . photo";
     }
 
     & .services{
@@ -136,7 +136,7 @@ const Body = styled.div`
     & .desc{
         grid-area: desc;
         @media (min-width: 768px){
-            font-size: 1.4vw;
+            font-size: 1.75vh;
         }
         & ul{
                 margin-top:10%;
