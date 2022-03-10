@@ -1,18 +1,8 @@
-import styled,{keyframes} from 'styled-components';
+import styled from 'styled-components';
 import bathroom2 from '../assets/images/bathroom2.jpg';
 import Text from '../Components/Text'
 import Title from 'Components/Title';
 
-const curtain = keyframes `
-    0% {
-        grid-gap: 100vw;
-        opacity:0;
-    }
-    100% {
-        grid-gap: 0; 
-        opacity:1;
-    }
-`
 
 
 
@@ -90,14 +80,14 @@ const Body = styled.div`
     top:5%;
     position:relative;
     height:80%;
-    align-items:center;
     justify-content:center;
+    
 
     @media (min-width: 768px) {
         width:70%;
-        grid-template-columns:3fr 3fr;
+        top:10%;
+        grid-template-columns:1fr 1fr;
         grid-template-rows:1fr 1fr;
-        animation: ${curtain} 1s ease-in-out forwards;
     }
 
 `;

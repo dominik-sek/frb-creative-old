@@ -1,5 +1,5 @@
 import Logo from 'Components/Logo';
-import styled,{keyframes} from 'styled-components';
+import styled from 'styled-components';
 import bathroom2 from '../assets/images/bathroom2.jpg';
 
 
@@ -8,8 +8,12 @@ const Home = () => {
         <Wrapper>
         <Layer>
             <Body>
-                <Logo style={{fontSize:'3em'}}/>
-                <span style={{fontSize:'1.5em'}}>Firma Remontowo-Budowlana</span>
+                <Logo style={{fontSize:'7vmax', marginRight:0}}/>
+                <div className="desc">
+                    <span>Firma Remontowo-Budowlana</span>
+                </div>
+                <OrderButton href="#contact" >Zamów usługę</OrderButton>
+
             </Body>
             </Layer>
         </Wrapper>
@@ -54,8 +58,27 @@ const Body = styled.div`
     flex-direction:column;
     align-items:center;
     justify-content:center;
+    & .desc{
+        font-size:3vmax;
+    }   
 `;
 
+const OrderButton = styled.a`
 
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 2vmax;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 10px;
+    cursor: pointer;
+    width:100%;
+    @media (min-width: 768px){
+        width:50%;
+        font-size: 1.5vmax;
+    }
+`
 
 export default Home;

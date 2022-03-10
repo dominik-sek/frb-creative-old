@@ -1,19 +1,8 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import bathroom2 from '../assets/images/bathroom2.jpg';
-import bathroom from '../assets/images/bathroom.jpg';
-import Text from '../Components/Text'
 import Title from 'Components/Title';
 
-const curtain = keyframes`
-    0% {
-        grid-gap: 100vw;
-        opacity:0;
-    }
-    100% {
-        grid-gap: 0; 
-        opacity:1;
-    }
-`
+
 
 
 
@@ -26,9 +15,11 @@ const Offers = () => {
 
                 <Body>
 
-                    <div class="desc">
-                        Świadczymy usługi remontowo - budowlane ze szczególnym uwzględnieniem prac związanych z wykończeniem wnętrz.<br /><br />
-                        Zakres świadczonych usług:
+                    <div className="desc">
+                        <div className="services">
+                            <span>Świadczymy usługi remontowo - budowlane ze szczególnym uwzględnieniem prac związanych z wykończeniem wnętrz.</span>
+                            <span>Zakres świadczonych usług:</span>
+                        </div>
                         <ul>
 
                             <li>Kompleksowe wykończenia wnętrz</li>
@@ -43,7 +34,7 @@ const Offers = () => {
 
                     </div>
 
-                    <div class="photo">
+                    <div className="photo">
                         <img src={bathroom2} alt=""/>
                     </div>
                 </Body>
@@ -89,22 +80,20 @@ const Wrapper = styled.div`
 
 const Body = styled.div`
 
-
-display: grid; 
-    
-    
+    display: grid; 
     position:relative;
     height:80%;
     width:70%;
     
+    
     margin:0 10% 0 10%;
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
         grid-gap: 2em;
         grid-template-areas: 
+            ". ."
             "desc desc"
-            "desc desc";
-
+            ". .";
 
 
     @media (min-width: 768px) {
@@ -118,7 +107,17 @@ display: grid;
         top:10%;
     }
 
-
+    & .services{
+        display:flex;
+        flex-direction: column;
+        top:10%;
+         & span {
+            margin:5% 0 5% 0;
+            @media (min-width: 768px) {
+                margin-top:10%;
+            }
+         }
+    }
 
     & .photo{
         grid-area: photo;
@@ -136,13 +135,12 @@ display: grid;
     }
     & .desc{
         grid-area: desc;
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
         @media (min-width: 768px){
-            font-size: 1.25em;
+            font-size: 1.4vw;
         }
-        
+        & ul{
+                margin-top:10%;
+            }
     }
 
 `;
