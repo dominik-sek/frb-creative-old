@@ -129,7 +129,7 @@ const Body = styled.div`
     grid-template-areas: 
         "gal1 gal2"
         "gal3 gal4";
-
+    grid-gap: 1em;
 
 
     & * img {
