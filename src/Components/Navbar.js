@@ -55,6 +55,7 @@ export default function Navbar(params) {
     return (
         <NavWrapper>
             <StyledGiHamburgerMenu onClick={() => setIsOpen(true)} />
+
             <Logo href="#home" style={{cursor:'pointer'}} onClick={() => toggleActive(0)} />
             {/* mobile drawer: */}
             <Drawer open={isOpen}>
@@ -120,7 +121,7 @@ const NavWrapper = styled.div`
     display: flex;
     height:10vh;
     width:100%;
-    justify-content:space-between;
+    justify-content:space-around;
     z-index:999;
     top:0;
     position:sticky;
@@ -133,6 +134,8 @@ const StyledGiHamburgerMenu = styled(GiHamburgerMenu)`
     width:10%;
     height:100%;
     margin-left:1rem;
+    position:absolute;
+    left:0;
     cursor:pointer;
     @media (min-width: 768px) {
         display:none;
@@ -207,6 +210,7 @@ const StyledUl = styled.ul`
         list-style-type:none;
         padding:0;
         margin:3rem 0;
+        font-size:1.3rem;
        
         & .active{
             box-shadow:0px 2px 0px var(--primary-color);

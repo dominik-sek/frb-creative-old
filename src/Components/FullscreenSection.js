@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import UpDownArrow from './UpDownArrow';
+import React from 'react';
+
 export default function FullscreenSection(params) {
+
 
     return (
         <FullscreenSectionWrapper id={params.id} style={params.style}>

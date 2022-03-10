@@ -16,10 +16,9 @@ const Logo = (props) => {
 const Body = styled.a`
 
     font-family:var(--secondary-font);
-    font-size:1.5rem;
+    font-size:5vmax;
     display:flex;
     width:15%;
-    margin-right:1.25rem;
     justify-content:center;
     align-items:center;
     position:relative;
@@ -32,7 +31,7 @@ const Body = styled.a`
         color:var(--secondary-color);
     }
     @media(min-width:768px){
-        font-size:2rem;
+        font-size:4vmax;
         margin:0;
     }
 `

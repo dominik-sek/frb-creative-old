@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import bathroom2 from '../assets/images/bathroom2.jpg';
 import Text from '../Components/Text'
 import Title from 'Components/Title';
 
@@ -9,7 +8,6 @@ import Title from 'Components/Title';
 const About = () => {
     return ( 
         <Wrapper>
-        <Layer>
 
         <Title>Dlaczego my ?</Title>
 
@@ -31,28 +29,26 @@ const About = () => {
                 Zajmujemy się kompleksowymi wykończeniami i remontami wnętrz. Wykonujemy także prace wykończeniowe na zewnątrz budynków.               
                  </Text>
             </Body>
-            </Layer>
         </Wrapper>
 
       );
 }
 
 
-const Layer = styled.div`
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
+// const Layer = styled.div`
+//     position:absolute;
+//     top:0;
+//     left:0;
+//     width:100%;
     
-    height:100%;
-    display:flex;
-    justify-content:center;
-    flex-direction:column;
-    align-items:center;
-    background:rgba(0,0,0,0.5);
-`
+//     height:100%;
+//     display:flex;
+//     justify-content:center;
+//     flex-direction:column;
+//     align-items:center;
+//     background:rgba(0,0,0,0.5);
+// `
 const Wrapper = styled.div`
-    background:purple;
     width:100%;
     height:100%;
     display:flex;
@@ -60,8 +56,7 @@ const Wrapper = styled.div`
     align-items:center;
     justify-content:center;
     position:relative;
-    background:url(${bathroom2});
-    background-color: #cccccc; 
+    background:var(--primary-background);
     background-position: center;
     background-repeat: no-repeat; 
     background-size: cover; 

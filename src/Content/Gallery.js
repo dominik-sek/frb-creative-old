@@ -1,20 +1,9 @@
-import styled, { keyframes } from 'styled-components';
-import bathroom2 from '../assets/images/bathroom2.jpg';
+import styled from 'styled-components';
 import Text from '../Components/Text'
 import Title from 'Components/Title';
 import { Image } from 'antd';
 import { useState } from 'react';
 
-const curtain = keyframes`
-    0% {
-        grid-gap: 100vw;
-        opacity:0;
-    }
-    100% {
-        grid-gap: 0; 
-        opacity:1;
-    }
-`
 
 
 
@@ -27,7 +16,6 @@ const Gallery = () => {
 
     return (
         <Wrapper>
-            <Layer>
 
                 <Title>Nasze prace: </Title>
 
@@ -87,25 +75,24 @@ const Gallery = () => {
                         <Image src="https://gw.alipayobjects.com/zos/antfincdn/x43I27A55%26/photo-1438109491414-7198515b166b.webp" />
                     </Image.PreviewGroup>
                 </div>
-            </Layer>
         </Wrapper>
 
     );
 }
 
 
-const Layer = styled.div`
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    display:flex;
-    justify-content:center;
-    flex-direction:column;
-    align-items:center;
-    background:rgba(0,0,0,0.5);
-`
+// const Layer = styled.div`
+//     position:absolute;
+//     top:0;
+//     left:0;
+//     width:100%;
+//     height:100%;
+//     display:flex;
+//     justify-content:center;
+//     flex-direction:column;
+//     align-items:center;
+//     background:rgba(0,0,0,0.5);
+// `
 const Wrapper = styled.div`
     background:purple;
     width:100%;
@@ -115,8 +102,8 @@ const Wrapper = styled.div`
     align-items:center;
     justify-content:center;
     position:relative;
-    background:url(${bathroom2});
-    background-color: #cccccc; 
+    background:var(--primary-background);
+
     background-position: center;
     background-repeat: no-repeat; 
     background-size: cover; 
@@ -183,7 +170,6 @@ const Body = styled.div`
     }
     @media (min-width: 768px) {
         width:60%;
-        animation: ${curtain} 1s ease-in-out forwards;
     }
 
 `;

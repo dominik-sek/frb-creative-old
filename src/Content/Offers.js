@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import bathroom2 from '../assets/images/bathroom2.jpg';
+import bathroom2 from '../assets/images/bathroom.jpg';
 import Title from 'Components/Title';
 
 
@@ -9,7 +9,6 @@ import Title from 'Components/Title';
 const Offers = () => {
     return (
         <Wrapper>
-            <Layer>
 
                 <Title>Nasza Oferta</Title>
 
@@ -35,29 +34,28 @@ const Offers = () => {
                     </div>
 
                     <div className="photo">
-                        <img src={bathroom2} alt=""/>
+                        <img style={{borderRadius:'10px'}} src={bathroom2} alt=""/>
                     </div>
                 </Body>
 
-            </Layer>
         </Wrapper>
 
     );
 }
 
 
-const Layer = styled.div`
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    display:flex;
-    justify-content:center;
-    flex-direction:column;
-    align-items:center;
-    background:rgba(0,0,0,0.5);
-`
+// const Layer = styled.div`
+//     position:absolute;
+//     top:0;
+//     left:0;
+//     width:100%;
+//     height:100%;
+//     display:flex;
+//     justify-content:center;
+//     flex-direction:column;
+//     align-items:center;
+//     background:rgba(0,0,0,0.5);
+// `
 const Wrapper = styled.div`
     width:100%;
     height:100%;
@@ -66,8 +64,7 @@ const Wrapper = styled.div`
     align-items:center;
     justify-content:center;
     position:relative;
-    background:url(${bathroom2});
-    background-color: #cccccc; 
+    background:var(--primary-background);
     background-position: center;
     background-repeat: no-repeat; 
     background-size: cover; 
